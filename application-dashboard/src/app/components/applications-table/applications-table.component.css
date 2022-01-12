@@ -6,6 +6,10 @@
   border-radius: 0.3rem;
 }
 
+tr {
+  transform-origin: top;
+}
+
 .mat-cell {
   color: var(--primaryTextColor);
 }

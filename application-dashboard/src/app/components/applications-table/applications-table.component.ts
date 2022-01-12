@@ -5,7 +5,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-applications-table',
@@ -13,15 +12,20 @@ import { ScrollStrategyOptions } from '@angular/cdk/overlay';
   styleUrls: ['./applications-table.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({ height: '0', transform: 'scaleY(0)' })),
-      state('expanded', style({ height: '*', transform: 'scaleY(1)' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+      state('collapsed', style({ transform: 'scaleY(0)', height: '0' })),
+      state('expanded', style({ transform: 'scaleY(1)', height: '*' })),
+      transition('expanded <=> collapsed', animate('200ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+    trigger('detailBtnExpand', [
+      state('collapsed', style({ transform: 'rotate(0deg)' })),
+      state('expanded', style({ transform: 'rotate(90deg)' })),
+      transition('expanded <=> collapsed', animate('200ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ])
   ]
 })
 export class ApplicationsTableComponent implements OnInit {
   constructor(private applicationService: ApplicationService) {}
-  displayedColumns: string[] = ['id', 'name', 'position', 'applied', 'experience', 'actions'];
+  displayedColumns: string[] = ['expand', 'id', 'name', 'position', 'applied', 'experience'];
   applications: Application[] = this.applicationService.getApplications();
   dataSource: MatTableDataSource<Application> = new MatTableDataSource(this.applications);
   isTableExpanded: boolean = false;
@@ -37,6 +41,10 @@ export class ApplicationsTableComponent implements OnInit {
   applyFilter(event: KeyboardEvent) {
     const filterValue = (event.target as HTMLInputElement ).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  hey(text: string) {
+    console.log(text)
   }
 
 }
