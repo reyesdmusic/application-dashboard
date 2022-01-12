@@ -93,3 +93,7 @@ h3 {
 .hidden {
   display: none;
 }
+
+.matAccentColor {
+  color: var(--matAccentColor);
+}

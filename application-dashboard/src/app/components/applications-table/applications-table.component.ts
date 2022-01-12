@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ApplicationService } from '../../services/application.service' 
+import { ApplicationService } from '../../services/application.service';
+import { FavoriteService } from '../../services/favorite.service'  
 import { Application } from '../../../models/Application';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
@@ -24,11 +25,12 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class ApplicationsTableComponent implements OnInit {
-  constructor(private applicationService: ApplicationService) {}
-  displayedColumns: string[] = ['expand', 'id', 'name', 'position', 'applied', 'experience'];
+  constructor(private applicationService: ApplicationService, private favoriteService: FavoriteService) {}
+  displayedColumns: string[] = ['expand', 'id', 'name', 'position', 'applied', 'experience', 'favorites'];
   applications: Application[] = this.applicationService.getApplications();
   dataSource: MatTableDataSource<Application> = new MatTableDataSource(this.applications);
   isTableExpanded: boolean = false;
+  favorites: number[] = [];
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -36,11 +38,22 @@ export class ApplicationsTableComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    this.getFavorites();
+  }
+
+  getFavorites(): void {
+    this.favoriteService.getFavorites().subscribe(favoritesArr => this.favorites = favoritesArr);
   }
 
   applyFilter(event: KeyboardEvent) {
     const filterValue = (event.target as HTMLInputElement ).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  toggleFavorite(id: number) {
+    this.favoriteService.toggleFavorite(id);
+    this.getFavorites();
+    
   }
 
 }
