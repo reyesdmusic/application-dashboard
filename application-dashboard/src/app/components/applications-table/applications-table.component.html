@@ -1,37 +1,50 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+<div class="flex-center">
+  <div class="width-90">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z8 width-100 applications-table"
+      matSort
+    >
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
 
-  <!-- ID Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-  </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-  </ng-container>
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Position</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Position</th>
-    <td mat-cell *matCellDef="let element">{{ element.position }}</td>
-  </ng-container>
+      <!-- Applied Column -->
+      <ng-container matColumnDef="applied">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Applied</th>
+        <td mat-cell *matCellDef="let element">{{ element.applied }}</td>
+      </ng-container>
 
-  <!-- Applied Column -->
-  <ng-container matColumnDef="applied">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Applied</th>
-    <td mat-cell *matCellDef="let element">{{ element.applied }}</td>
-  </ng-container>
+      <!-- Experience Column -->
+      <ng-container matColumnDef="experience">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Experience</th>
+        <td mat-cell *matCellDef="let element">{{ element.experience }}</td>
+      </ng-container>
 
-  <!-- Experience Column -->
-  <ng-container matColumnDef="experience">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Experience</th>
-    <td mat-cell *matCellDef="let element">{{ element.experience }}</td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [length]="applications.length"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </div>
+</div>

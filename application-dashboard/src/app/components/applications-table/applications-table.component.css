@@ -1,3 +1,29 @@
-table {
+.applications-table {
+  position: relative;
+  color: var(--primaryTextColor);
+  box-shadow: none;
+  border: 2px solid var(--lightGrey);
+  border-radius: 0.3rem;
+}
+
+.mat-cell {
+  color: var(--primaryTextColor);
+}
+
+.mat-row:nth-child(even) {
+  background-color: var(--lightGrey);
+}
+
+td.mat-cell {
+  border-bottom-style: none;
+}
+
+.filter-input {
+  display: block;
   width: 100%;
+}
+
+mat-table {
+  transition: none !important;
+  box-shadow: none !important;
 }
