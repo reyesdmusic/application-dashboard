@@ -27,3 +27,8 @@ mat-table {
   transition: none !important;
   box-shadow: none !important;
 }
+
+.filter-input {
+  display: block;
+  width: 100%;
+}
