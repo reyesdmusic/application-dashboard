@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ApplicationsTableComponent } from './components/applications-table/applications-table.component';
+import { MatTableModule  } from '@angular/material/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +15,9 @@ import { ApplicationsTableComponent } from './components/applications-table/appl
     ApplicationsTableComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatTableModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

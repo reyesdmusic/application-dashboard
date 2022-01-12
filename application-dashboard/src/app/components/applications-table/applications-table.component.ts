@@ -9,10 +9,11 @@ import { Application } from '../../../models/Application';
 })
 export class ApplicationsTableComponent implements OnInit {
   constructor(private applicationService: ApplicationService) { }
-  applications: Application[] = [];
+  displayedColumns: string[] = ['id', 'name', 'position', 'applied', 'experience'];
+  dataSource: Application[] = [];
 
   ngOnInit(): void {
-    this.applications = this.applicationService.getApplications();
+    this.dataSource = this.applicationService.getApplications();
   }
 
 }

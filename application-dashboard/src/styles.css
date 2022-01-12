@@ -17,6 +17,14 @@
 h1 {
   font-size: 2rem;
   margin: 2rem;
+  background: linear-gradient(
+    to right,
+    var(--matPrimaryColorDark),
+    var(--matAccentColor)
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .flex-center {
