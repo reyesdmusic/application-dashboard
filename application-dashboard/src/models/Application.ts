@@ -9,13 +9,13 @@ export interface Application {
 }
 
 interface Availability {
-    M: number; 
-    T: number;
-    W: number; 
-    Th: number; 
-    F: number; 
-    S: number;
-    Su: number; 
+    M?: number; 
+    T?: number;
+    W?: number; 
+    Th?: number; 
+    F?: number; 
+    S?: number;
+    Su?: number; 
 }
 
 interface Question {
