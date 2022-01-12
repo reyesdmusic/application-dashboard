@@ -62,9 +62,14 @@
           [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'"
           [ngClass]="{ hidden: !element.isExpanded }"
         >
-          <app-availability-table
-            [availability]="element.availability"
-          ></app-availability-table>
+          <section class="flex-around flex-wrap">
+            <app-availability-table
+              [availability]="element.availability"
+            ></app-availability-table>
+            <app-questions-cards
+              [questions]="element.questions"
+            ></app-questions-cards>
+          </section>
         </td>
       </ng-container>
 

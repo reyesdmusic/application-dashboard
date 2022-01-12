@@ -1,0 +1,12 @@
+<div class="flex-column-center">
+  <h3 class="m-1 mb-0">Questions</h3>
+  <div class="flex-center m-1 mt-p5">
+    <section *ngFor="let question of questions">
+      <article class="day flex-center">
+        <span class="fs-small f-italic">{{ question.text }}</span>
+        &nbsp;
+        <span class="fs-small">{{ question.answer }}</span>
+      </article>
+    </section>
+  </div>
+</div>

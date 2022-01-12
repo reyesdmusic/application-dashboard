@@ -13,6 +13,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AvailabilityTableComponent } from './components/availability-table/availability-table.component';
+import { QuestionsCardsComponent } from './components/questions-cards/questions-cards.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AvailabilityTableComponent } from './components/availability-table/avai
     AppComponent,
     HeaderComponent,
     ApplicationsTableComponent,
-    AvailabilityTableComponent
+    AvailabilityTableComponent,
+    QuestionsCardsComponent
   ],
   imports: [
     BrowserModule,

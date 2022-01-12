@@ -55,10 +55,24 @@ h3 {
   font-size: 0.875rem;
 }
 
+.f-italic {
+  font-style: italic;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .flex-column-center {
