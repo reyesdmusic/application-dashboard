@@ -1,0 +1,28 @@
+.availability-count {
+  height: 1.75rem;
+  width: 1.75rem;
+  border-style: solid;
+  border-width: 2px 1px 2px 1px;
+}
+
+.availability-count.green {
+  border-color: var(--green);
+}
+
+.availability-count.orange {
+  border-color: var(--orange);
+}
+
+.availability-count.red {
+  border-color: var(--red);
+}
+
+.leftContainer {
+  border-width: 2px 1px 2px 2px;
+  border-radius: 2px 0 0 2px;
+}
+
+.rightContainer {
+  border-width: 2px 2px 2px 1px;
+  border-radius: 0 2px 2px 0;
+}

@@ -62,8 +62,9 @@
           [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'"
           [ngClass]="{ hidden: !element.isExpanded }"
         >
-          {{ element.availability.M }}
-          <app-availability-table></app-availability-table>
+          <app-availability-table
+            [availability]="element.availability"
+          ></app-availability-table>
         </td>
       </ng-container>
 

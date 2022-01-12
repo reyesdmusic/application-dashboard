@@ -1,1 +1,22 @@
-<p>availability-table works!</p>
+<div class="flex-column-center">
+  <h3 class="m-1 mb-0">Availability</h3>
+  <div class="flex-center m-1 mt-p5">
+    <section *ngFor="let day of availability; let i = index">
+      <article class="day flex-center fs-small">
+        {{ day[0] }}
+      </article>
+      <article
+        class="availability-count flex-center fs-small"
+        [ngClass]="{
+          red: day[1] === 0,
+          orange: day[1] === 1,
+          green: day[1] === 2,
+          leftContainer: i === 0,
+          rightContainer: i === availability.length - 1
+        }"
+      >
+        {{ day[1] }}
+      </article>
+    </section>
+  </div>
+</div>

@@ -43,8 +43,4 @@ export class ApplicationsTableComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  hey(text: string) {
-    console.log(text)
-  }
-
 }

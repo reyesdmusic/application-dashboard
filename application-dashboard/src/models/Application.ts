@@ -8,7 +8,7 @@ export interface Application {
     questions: Question[]
 }
 
-interface Availability {
+export interface Availability {
     M?: number; 
     T?: number;
     W?: number; 
