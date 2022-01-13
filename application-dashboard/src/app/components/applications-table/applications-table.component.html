@@ -1,14 +1,18 @@
 <div class="flex-center">
   <div class="width-90 table-container">
-    <section class="flex-end">
-      <mat-slide-toggle color="primary" (change)="toggleFilterFavorites()"
-        >Only Favorites</mat-slide-toggle
-      >
-    </section>
-    <mat-form-field floatLabel="always" class="filter-input">
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" />
-    </mat-form-field>
+    <div class="flex-column-center">
+      <div [ngClass]="{ 'width-90': isMobile, 'width-100': !isMobile }">
+        <section class="flex-end">
+          <mat-slide-toggle color="primary" (change)="toggleFilterFavorites()"
+            >Only Favorites</mat-slide-toggle
+          >
+        </section>
+        <mat-form-field floatLabel="always" class="filter-input">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" />
+        </mat-form-field>
+      </div>
+    </div>
     <table
       mat-table
       [dataSource]="dataSource"
