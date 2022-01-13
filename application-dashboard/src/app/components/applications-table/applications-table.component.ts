@@ -90,11 +90,19 @@ export class ApplicationsTableComponent implements OnInit {
   filterFavorites() {
     this.applicationService.filterFavorites();
     this.getApplications();
+    this.updateDataAndFilters();
   }
 
   unfilterFavorites() {
     this.applicationService.unfilterFavorites();
+    this.updateDataAndFilters();
+  }
+
+  updateDataAndFilters() {
     this.getApplications();
+    const filterInput = document.getElementById('filter-input') as HTMLInputElement;
+    const filterValue = filterInput.value
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }
