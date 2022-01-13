@@ -33,7 +33,7 @@ export const APPLICATIONS: Application[] = [
          "M":1,
          "T":1,
          "W":1,
-         "Th":1,
+         "Th":2,
          "F":0,
          "S":0,
          "Su":0
@@ -104,12 +104,12 @@ export const APPLICATIONS: Application[] = [
       "applied":"05/08/16",
       "experience":2,
       "availability":{
-         "M":1,
+         "M":2,
          "T":0,
          "W":1,
          "Th":0,
-         "F":1,
-         "S":1,
+         "F":2,
+         "S":2,
          "Su":1
       },
       "questions":[
@@ -131,7 +131,7 @@ export const APPLICATIONS: Application[] = [
          "W":1,
          "Th":0,
          "F":0,
-         "S":0,
+         "S":2,
          "Su":0
       },
       "questions":[
@@ -172,9 +172,9 @@ export const APPLICATIONS: Application[] = [
       "availability":{
          "M":1,
          "T":1,
-         "W":1,
-         "Th":1,
-         "F":1,
+         "W":2,
+         "Th":2,
+         "F":2,
          "S":0,
          "Su":0
       },
@@ -197,8 +197,8 @@ export const APPLICATIONS: Application[] = [
          "W":1,
          "Th":0,
          "F":1,
-         "S":1,
-         "Su":1
+         "S":2,
+         "Su":2
       },
       "questions":[
          {
@@ -258,13 +258,13 @@ export const APPLICATIONS: Application[] = [
       "applied":"07/08/16",
       "experience":12,
       "availability":{
-         "M":1,
+         "M":2,
          "T":1,
-         "W":1,
-         "Th":1,
-         "F":1,
-         "S":1,
-         "Su":1
+         "W":2,
+         "Th":2,
+         "F":2,
+         "S":2,
+         "Su":2
       },
       "questions":[
          {
@@ -284,7 +284,7 @@ export const APPLICATIONS: Application[] = [
          "T":0,
          "W":0,
          "Th":0,
-         "F":1,
+         "F":2,
          "S":1,
          "Su":1
       },
@@ -324,7 +324,7 @@ export const APPLICATIONS: Application[] = [
       "applied":"05/12/16",
       "experience":4,
       "availability":{
-         "M":1,
+         "M":2,
          "T":0,
          "W":1,
          "Th":0,

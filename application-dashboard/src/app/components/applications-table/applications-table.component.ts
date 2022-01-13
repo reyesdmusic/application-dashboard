@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { ApplicationService } from '../../services/application.service';
 import { FavoriteService } from '../../services/favorite.service'  
 import { Application } from '../../../models/Application';
@@ -31,14 +31,29 @@ export class ApplicationsTableComponent implements OnInit {
   dataSource: MatTableDataSource<Application> = new MatTableDataSource(this.applications);
   isTableExpanded: boolean = false;
   favorites: number[] = [];
+  screenWidth: number = window.innerWidth;
+  isMobile: boolean = this.screenWidth <= 850;
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize() {
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth > 850) {
+      this.isMobile = false;
+      this.displayedColumns = ['expand', 'id', 'name', 'position', 'applied', 'experience', 'favorites'];
+    } else {
+      this.isMobile = true;
+      this.displayedColumns = ['expand', 'id', 'name', 'position', 'favorites'];
+    }
+  }
   
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.getFavorites();
+    this.getScreenSize();
   }
 
   getFavorites(): void {

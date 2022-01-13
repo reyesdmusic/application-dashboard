@@ -36,3 +36,13 @@ mat-table {
   display: block;
   width: 100%;
 }
+
+@media screen and (max-width: 850px) {
+  .detail-container {
+    flex-direction: column;
+  }
+
+  .table-container {
+    width: 98%;
+  }
+}

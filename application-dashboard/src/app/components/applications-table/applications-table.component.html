@@ -1,5 +1,5 @@
 <div class="flex-center">
-  <div class="width-90">
+  <div class="width-90 table-container">
     <mat-form-field floatLabel="always" class="filter-input">
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" />
@@ -81,7 +81,23 @@
           [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'"
           [ngClass]="{ hidden: !element.isExpanded }"
         >
-          <section class="flex-around flex-wrap">
+          <section class="flex-around flex-wrap detail-container">
+            <div class="flex-column-center" *ngIf="isMobile">
+              <h3 class="m-1 mb-0">Applied</h3>
+              <div class="flex-center m-1 mt-p5">
+                <section>
+                  <span class="fs-small">{{ element.applied }}</span>
+                </section>
+              </div>
+            </div>
+            <div class="flex-column-center" *ngIf="isMobile">
+              <h3 class="m-1 mb-0">Experience</h3>
+              <div class="flex-center m-1 mt-p5">
+                <section>
+                  <span class="fs-small">{{ element.experience }}</span>
+                </section>
+              </div>
+            </div>
             <app-availability-table
               [availability]="element.availability"
             ></app-availability-table>
