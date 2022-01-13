@@ -1,27 +1,50 @@
-# ApplicationDashboard
+# APPLICATION DASHBOARD
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+## Table of Contents
 
-## Development server
+- [About](#About)
+- [UI](#UI)
+- [Dependencies](#Dependencies)
+- [Contact](#Contact)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## About
 
-## Code scaffolding
+This application serves as a Job Applications Dashboard for a hiring manager. From the dashboard, a user can view a paginated table of all current job applications. From here a user can sort, filter, and favorite applications in the table and expand each row to reveal additional details.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+See the deployed app [here](http://angular-applications-manager.s3-website-us-east-1.amazonaws.com/).
 
-## Build
+## UI
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Desktop View with Sorted Column
 
-## Running unit tests
+## <img width="400" src='./src/assets/desktop.png'>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Mobile View
 
-## Running end-to-end tests
+## <img width="400" src='./src/assets/mobile.png'>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Row Detail
 
-## Further help
+## <img width="300" src='./src/assets/detail.png'>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Favorites (persist in local storage)
+
+## <img width="300" src='./src/assets/favorites.png'>
+
+## Dependencies
+
+- [Angular](https://angular.io/)
+- [Angular Material](https://material.angular.io/)
+- [Angular Material Table](https://material.angular.io/components/table/overview)
+- [Angular Material Icon](https://material.angular.io/components/icon/overview)
+- [Angular Material Tooltip](https://material.angular.io/components/tooltip/overview)
+- [Angular Material Input](https://material.angular.io/components/input/overview)
+- [Angular Material Slide Toggle](https://material.angular.io/components/slide-toggle/overview)
+
+## Contact
+
+### Danny Reyes
+
+- [GitHub](https://github.com/reyesdmusic)
+- [LinkedIn](https://www.linkedin.com/in/danny-reyes-dev/)
+- email: vdannyreyesdev@gmail.com
