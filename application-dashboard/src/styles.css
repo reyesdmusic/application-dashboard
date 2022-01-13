@@ -65,6 +65,12 @@ h3 {
   align-items: center;
 }
 
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .flex-around {
   display: flex;
   justify-content: space-around;
@@ -96,4 +102,17 @@ h3 {
 
 .matAccentColor {
   color: var(--matAccentColor);
+}
+
+/* Adjust h1 for extra small screens */
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  h1 {
+    font-size: 1rem;
+  }
 }

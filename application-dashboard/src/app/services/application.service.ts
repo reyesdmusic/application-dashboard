@@ -8,8 +8,22 @@ import { APPLICATIONS } from '../../mock-applications';
 export class ApplicationService {
 
   constructor() { }
+  applications = APPLICATIONS;
 
   getApplications(): Application[] {
-    return APPLICATIONS
+    return this.applications;
   }
+
+  filterFavorites() {
+    const favorites = localStorage.getItem('favorites');
+    let favoritesArr: any;
+    if (favorites) {
+      favoritesArr = JSON.parse(favorites);
+      this.applications = this.applications.filter(app => favoritesArr.includes(app.id))
+    }
+  }
+
+  unfilterFavorites() {
+    this.applications = APPLICATIONS;
+  } 
 }

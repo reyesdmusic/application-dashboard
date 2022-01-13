@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AvailabilityTableComponent } from './components/availability-table/availability-table.component';
 import { QuestionsCardsComponent } from './components/questions-cards/questions-cards.component';
@@ -33,7 +34,8 @@ import { QuestionsCardsComponent } from './components/questions-cards/questions-
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
-    MatIconModule
+    MatIconModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

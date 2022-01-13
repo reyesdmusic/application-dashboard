@@ -33,6 +33,7 @@ export class ApplicationsTableComponent implements OnInit {
   favorites: number[] = [];
   screenWidth: number = window.innerWidth;
   isMobile: boolean = this.screenWidth <= 850;
+  isFilterFavorite: boolean = false;
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -68,7 +69,32 @@ export class ApplicationsTableComponent implements OnInit {
   toggleFavorite(id: number) {
     this.favoriteService.toggleFavorite(id);
     this.getFavorites();
-    
+  }
+
+  getApplications() {
+    this.applications = this.applicationService.getApplications();
+    this.dataSource = new MatTableDataSource(this.applications);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
+  toggleFilterFavorites() {
+    this.isFilterFavorite = !this.isFilterFavorite;
+    if (this.isFilterFavorite) {
+      this.filterFavorites()
+    } else {
+      this.unfilterFavorites()
+    }
+  }
+
+  filterFavorites() {
+    this.applicationService.filterFavorites();
+    this.getApplications();
+  }
+
+  unfilterFavorites() {
+    this.applicationService.unfilterFavorites();
+    this.getApplications();
   }
 
 }

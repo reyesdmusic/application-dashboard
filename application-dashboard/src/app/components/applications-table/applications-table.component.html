@@ -1,5 +1,10 @@
 <div class="flex-center">
   <div class="width-90 table-container">
+    <section class="flex-end">
+      <mat-slide-toggle color="primary" (change)="toggleFilterFavorites()"
+        >Only Favorites</mat-slide-toggle
+      >
+    </section>
     <mat-form-field floatLabel="always" class="filter-input">
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" />
@@ -64,6 +69,7 @@
         >
           <a
             ><mat-icon
+              matTooltip="Favorite"
               [ngClass]="{ matAccentColor: favorites.includes(element.id) }"
               >{{
                 favorites.includes(element.id) ? "star" : "star_border"
