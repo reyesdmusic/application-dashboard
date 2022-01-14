@@ -102,6 +102,8 @@ export class ApplicationsTableComponent implements OnInit {
     this.getApplications();
     const filterInput = document.getElementById('filter-input') as HTMLInputElement;
     const filterValue = filterInput.value
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator.pageIndex = 0;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
