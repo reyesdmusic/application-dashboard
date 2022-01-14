@@ -27,7 +27,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export class ApplicationsTableComponent implements OnInit {
   constructor(private applicationService: ApplicationService, private favoriteService: FavoriteService) {}
   displayedColumns: string[] = ['expand', 'id', 'name', 'position', 'applied', 'experience', 'favorites'];
-  applications: Application[] = this.applicationService.getApplications();
+  applications: Application[] = [];
   dataSource: MatTableDataSource<Application> = new MatTableDataSource(this.applications);
   isTableExpanded: boolean = false;
   favorites: number[] = [];
@@ -50,11 +50,13 @@ export class ApplicationsTableComponent implements OnInit {
     }
   }
   
-  ngOnInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+  async ngOnInit() {
     this.getFavorites();
     this.getScreenSize();
+    this.applications = await this.applicationService.getAllApplications();
+    this.dataSource = new MatTableDataSource(this.applications);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   getFavorites(): void {
@@ -71,8 +73,8 @@ export class ApplicationsTableComponent implements OnInit {
     this.getFavorites();
   }
 
-  getApplications() {
-    this.applications = this.applicationService.getApplications();
+  async getApplications() {
+    this.applications = await this.applicationService.getApplications();
     this.dataSource = new MatTableDataSource(this.applications);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
@@ -98,10 +100,11 @@ export class ApplicationsTableComponent implements OnInit {
     this.updateDataAndFilters();
   }
 
-  updateDataAndFilters() {
-    this.getApplications();
+  async updateDataAndFilters() {
+    this.applications = await this.applicationService.getApplications();
     const filterInput = document.getElementById('filter-input') as HTMLInputElement;
     const filterValue = filterInput.value
+    this.dataSource = new MatTableDataSource(this.applications);
     this.dataSource.paginator = this.paginator;
     this.dataSource.paginator.pageIndex = 0;
     this.dataSource.filter = filterValue.trim().toLowerCase();

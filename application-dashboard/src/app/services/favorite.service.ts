@@ -30,7 +30,6 @@ export class FavoriteService {
         // Delegate to error handling service
         console.error('Error: attempting to initialize favorites array in LocalStorage unsuccessful, ', e)
       }
-      
     }
 
     // Finally, return observable of favortiesArr

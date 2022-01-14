@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Application } from '../../models/Application';
-import { APPLICATIONS } from '../../mock-applications';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +7,35 @@ import { APPLICATIONS } from '../../mock-applications';
 export class ApplicationService {
 
   constructor() { }
-  applications = APPLICATIONS;
+  applications: Application[] = [];
+  allApplications: Application[] = [];
 
-  getApplications(): Application[] {
+  async getApplications(): Promise<Application[]> {
+    return this.applications;
+  }
+
+  async getAllApplications(): Promise<Application[]> {
+    try {
+      const { APPLICATIONS } = await import('../../mock-applications');
+      this.allApplications = APPLICATIONS;
+      this.applications = this.allApplications;
+    } catch (e) {
+      // Delegate to error handling service
+      console.error('Error: attempt to import mock-applications failed, ', e)
+    }
     return this.applications;
   }
 
   filterFavorites() {
-    const favorites = localStorage.getItem('favorites');
+    let favorites 
+    
+    try {
+      favorites = localStorage.getItem('favorites');
+    } catch(e) {
+      // Delegate to error handling service
+      console.error('Error: attempt to get favorites from LocalStorage failed, ', e)
+    }
+    
     let favoritesArr: any;
     if (favorites) {
       favoritesArr = JSON.parse(favorites);
@@ -24,6 +44,6 @@ export class ApplicationService {
   }
 
   unfilterFavorites() {
-    this.applications = APPLICATIONS;
+    this.applications = this.allApplications;
   } 
 }
